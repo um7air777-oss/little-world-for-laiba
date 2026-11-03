@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Laiba ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;text-align:center;
+font-family:Georgia,serif;color:#81445e;
+background:linear-gradient(135deg,#ffe0eb,#fff5f8,#fbd4e5);
+}
+.screen{
+display:none;min-height:100vh;padding:25px 16px;
+align-items:center;justify-content:center;
+flex-direction:column;
+}
+.active{display:flex}
+.card{
+width:100%;max-width:430px;background:#ffffffdf;
+padding:27px 20px;border-radius:26px;
+box-shadow:0 10px 35px #bd789044;
+}
+h1{font-size:34px}
+p{font-size:18px;line-height:1.7}
+button{
+background:#e982a8;color:white;border:0;
+border-radius:30px;padding:14px 23px;
+font-size:16px;margin:10px;cursor:pointer;
+}
+.envelope{font-size:105px;animation:float 2s infinite}
+.baby{font-size:100px;animation:bounce 1s infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes bounce{50%{transform:translateY(-12px)}}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gallery img{
+width:100%;height:145px;object-fit:cover;
+border-radius:15px;background:#ffe0eb;
+}
+.letter{text-align:left;line-height:1.9;white-space:pre-line}
+.heart{
+position:fixed;top:-30px;pointer-events:none;
+animation:fall 5s linear forwards;
+}
+@keyframes fall{to{transform:translateY(110vh);opacity:0}}
+</style>
+</head>
+<body>
+
+<audio id="music" loop src="music.mp3"></audio>
+
+<section class="screen active" id="s1">
+<div class="card">
+<h1>Hey Laiba! 💗</h1>
+<p>⚠️ Warning: Opening this may cause smiling!</p>
+<div class="envelope">💌</div>
+<p>A little surprise made just for you.</p>
+<button onclick="start()">Open My Heart ❤️</button>
+</div>
+</section>
+
+<section class="screen" id="s2">
+<div class="card">
+<div class="baby">👶🏻</div>
+<h1>I'm Sorry Laiba 🥺</h1>
+<p>Hello Laiba! This little baby has something to say.</p>
+<p>Please forgive me for my mistake. I know I may have hurt you, and I'm genuinely sorry.</p>
+<p>You deserve to be heard and respected. 🌷</p>
+<button onclick="go('s3')">Next ❤️</button>
+</div>
+</section>
+
+<section class="screen" id="s3">
+<div class="card">
+<h1>Our Memories 📸</h1>
+<p>Some moments are worth keeping forever.</p>
+<div class="gallery">
+<img src="photo1.jpg" alt="Memory 1">
+<img src="photo2.jpg" alt="Memory 2">
+<img src="photo3.jpg" alt="Memory 3">
+<img src="photo4.jpg" alt="Memory 4">
+</div>
+<p>Our little collection of memories 💕</p>
+<button onclick="go('s4')">Read My Letter 💌</button>
+</div>
+</section>
+
+<section class="screen" id="s4">
+<div class="card">
+<h1>Dear Laiba ❤️</h1>
+<div class="letter">
+I know you're upset with me.
+
+I'm truly sorry for my mistake. I should have understood your feelings better.
+
+You are important to me, and I never want you to feel unappreciated.
+
+I won't just say sorry. I'll try to show through my actions that I mean it.
+
+I don't expect you to forgive me immediately. Take your time. Your feelings matter.
+
+I hope this little surprise brings a smile to your face.
+
+With love,
+Your sorry human ❤️
+</div>
+<button onclick="go('s5')">One Last Surprise 🎁</button>
+</div>
+</section>
+
+<section class="screen" id="s5">
+<div class="card">
+<div style="font-size:85px">🎁💗</div>
+<h1>For You, Laiba!</h1>
+<p>I made this little world just to tell you that I'm genuinely sorry.</p>
+<button onclick="reveal()">Open Your Secret Gift ✨</button>
+<div id="secret" style="display:none">
+<div style="font-size:75px">🧸💖🌷</div>
+<h2>A little hug in a little box!</h2>
+<p>You are special. Take your time, and remember that I'm working on being better.</p>
+</div>
+<button onclick="go('s1')">Replay ↻</button>
+</div>
+</section>
+
+<script>
+function go(id){
+document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+}
+function start(){
+document.getElementById('music').play().catch(()=>{});
+go('s2');
+}
+function reveal(){
+document.getElementById('secret').style.display='block';
+}
+function hearts(){
+let h=document.createElement('div');
+h.className='heart';
+h.textContent=['💗','💕','🌸','❤️','✨'][Math.floor(Math.random()*5)];
+h.style.left=Math.random()*100+'vw';
+h.style.fontSize='22px';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+}
+setInterval(hearts,1000);
+</script>
+</body>
+</html>
